@@ -1,8 +1,0 @@
-To analyze the impact of safe clients, we explore how \textit{clean} and \textit{used} client projects react to vulnerability library updates. In order to do that,
-We performed an exploratory study at the function level and access of the library Application Programming Interface (i.e., API). We manually identified and validated vulnerability fixes and how they affected the client code.
-In an empirical study of npm projects and their dependencies, we manually examined a total of 60 projects, investigating three cases of high priority vulnerabilities to understand how safe and unsafe projects handle migration to safer dependency versions.
-
-Results of the exploratory study suggest that up to 73.3\% of the sampled outdated clients were indeed safe from the vulnerability threat (i.e., did not execute the vulnerable code).
-Furthermore, the study highlights how mapping vulnerable code to client usage is not trivial for JavaScript, with dependency information needed to understand the control flow and API detection of function difficulty.
-We envision that the early results of this paper will lead to further rigours studies and helps towards aiding a smoother library migration for client developers.
- 

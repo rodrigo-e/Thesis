@@ -26,9 +26,6 @@ According to the npm website, the library is very popular (with over 3,158,600 d
 In 2016, the CWE disclosed a high severity vulnerability (i.e., Denial of Service (DoS)) that affected clients that used this library (i.e.,  \url{https://snyk.io/vuln/npm:ws:20160624}), urging clients to update if they used any \texttt{ws} versions 1.1.0 and lower.
 In fact, the issue was so severe, that it was also published as an advisory by the Node Security Platform (i.e., https://nodesecurity.io/advisories/120).
 
-As shown in Figure \ref{fig:codeWS}, the manual inspection of the code reveals that the function \texttt{WebSocketServer} in the file \texttt{WebSocketServer.js} had been modified.
-Although small, it does pose as a dependency breaking issue, with client project developer\footnote{the comment is taken from the npm blog at \url{https://github.com/node-red/node-red/issues/931}} stating that \textit{'Indeed, the breaking of node.js 0.10 is precisely why we've not been able to update already'}. 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure*}[th]
 \centering
@@ -37,6 +34,9 @@ Although small, it does pose as a dependency breaking issue, with client project
 \label{fig:codeWS}
    \end{figure*}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+As shown in Figure \ref{fig:codeWS}, the manual inspection of the code reveals that the function \texttt{WebSocketServer} in the file \texttt{WebSocketServer.js} had been modified.
+Although small, it does pose as a dependency breaking issue, with client project developer\footnote{the comment is taken from the npm blog at \url{https://github.com/node-red/node-red/issues/931}} stating that \textit{'Indeed, the breaking of node.js 0.10 is precisely why we've not been able to update already'}. 
 
 After consulting the API documentation\footnote{website as \url{https://github.com/websockets/ws/blob/HEAD/doc/ws.md}} and as shown in Figure \ref{fig:codeWSCode}, I find that 
 \texttt{WebSocketServer} is not simply a function but is called from the class \textit{WebSocket} which has the \texttt{maxPayload} as one of the option parameters.
@@ -73,4 +73,4 @@ I summarized the challenges below for JavaScript client projects:
 
 Both of the challenges mentioned require a lot of manual validation work. In this thesis I am addressing the 2nd challenge to make the analysis task from vulnerable dependencies an easier task for developers by automating the detection of function-calls. I am focusing on the node.js package manager (npm) repository for JavaScript and therefore I will be defining a third-party library as any set of functions that are available to use in a JavaScript project through an import of an npm package.  
  
-Further in this paper, the terms \textit{Dependencies} and \textit{Libraries} will be used interchangeably always in reference to \textit{third-party libraries}.
+Further in this thesis, the terms \textit{Dependencies} and \textit{Libraries} will be used interchangeably always in reference to \textit{third-party libraries}.
