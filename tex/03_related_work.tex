@@ -1,0 +1,23 @@
+\chapter{Related Work}
+\label{sec:related_work}
+For classification purposes I will separate the related work into 2 main categories, each of them organized in chronological order.
+
+\vspace{5mm}
+\textbf{Tool Support For Library Updates.}
+
+Since I am implementing a tool to aid the developers have a better understanding on the relation between their project and third-party libraries in order to motivate them to update their dependencies, for this section I will be referring to those works that have implemented some kind of tool to pursue the same objective.
+
+The tool presented by Ponta et al. \cite{Ponta:2018} is the closet one to my approach since they are detecting vulnerabilities in open-source software at function level for Java programming language. 
+In \cite{todorov2017sol} Todorov et al. use a visualization tool to show through an orbital layout if a npm project dependencies are up-to-date and determine the complexity of each potential update by using a coexistence notation. 
+On the work presented by Ferrarezi et al. \cite{ferrarezi2016libviews} they introduce an information visualization tool to create visual representations over libraries metrics and usage on software projects of the Java ecosystem. 
+Yano et al. \cite{yano2015verxcombo} present a tool to assist system maintainers make library upgrade decisions based on different combination patterns obtained through the \textit{wisdom of the crowd} popularity metrics. 
+The tool proposed by Moritz et al. \cite{moritz2013export} for automatically mining and visualizing API usage examples in Java contributed to the methodology used in the development of \tool.
+
+\vspace{5mm}
+\textbf{Library Dependencies And Evolution.}
+
+For this section I will be referring to those works that (i) highlight the importance of keeping third-party library dependencies up to date or (ii) study the developers updating patterns.
+
+Although not closely related to this work the study performed by Kula et al. \cite{kula2018generalized} introduce the Software Universe Graph (SUG) as a mean to model the realities of popularity, adoption and diffusion within a software ecosystem which offer useful information and bases that are helpful for this thesis. The empirical study performed by Kula et al. \cite{Kula:2018} covering over 4,600 GitHub sofware projects and 2,700 library dependencies shows that although many project rely heavily on dependencies around 81\% of them keep their dependencies outdated. Mirhosseini et al. \cite{Mirhosseini:2017} performed an analysis to understand whether automated pull requests and project badges actually help developers to update their projects. They analyzed 7,470 GitHub projects that used either automated pull requests or project badges to identify changes in upgrade behavior, they find that developers that use some kind of tool are more likely to update their dependencies that those that does not use any tool at all. In other study performed by Kula et al. \cite{Kula:2015} it is demonstrated how latent adoption (i.e. when developers do not adopt the latest library release) is still a common practice in open-source software community. In \cite{bavota2015apache} Bavota et al. investigate how dependencies between projects evolve over time when the ecosystem grows and what are the product and process factors that can likely trigger dependency upgrades among other aspects of dependency migration.
+
+The studies or tools focused on the identification of function calls in nodeJS projects are, to my knowledge, very limited not to say nonexistent. Therefore, I am hoping that \tool[] becomes a pillar for future work related to third-party function calls in nodeJS projects.

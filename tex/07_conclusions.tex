@@ -1,0 +1,30 @@
+\chapter{Conclusions}
+\label{sec:conclusions}
+\section{Summary}
+\begin{itemize}
+    \item \textit{Security vulnerability analysis at the dependency level is likely to be an overestimation.}
+    Previous studies have focus on the usage of vulnerable libraries at a dependency level. This means that, if a project is using a vulnerable dependency (i.e. a third party library that contains 1 or more functions with some kind of vulnerability) the project is vulnerable. I believe that this statement is an overestimation, therefore, I performed a series of empirical studies to validate the real impact of a vulnerable dependency by analyzing them not at dependency but at function level.
+    
+    The preliminary results, suggest that, this statement is in fact an overestimation. 
+
+    \item \textit{Automatic approaches are needed to increase the scalability of mapping the usage of library code in client projects. }
+    During the executions of the empirical studies, I discover that the manual validation work needed to trace the vulnerable code of a vulnerable dependency and its function-call inside a project is quite exhausting making a large scale study almost impossible to perform without automation.
+    
+    To address this issue in this thesis I present \tool[] as an aid to automate the function-call tracing allowing a larger scale study to be performed.
+    
+    \item \textit{Developers should be encouraged to migrate away from the vulnerable dependency, even if the vulnerable code is not being used.}
+    Although there are different reasons for keeping the outdated version (i.e., fix breaks the older version or new changes are not needed), developers should be encouraged to update as soon as the fix is made available.
+    Furthermore, I suggest that security only patches should be released.
+    This is similar to the Debian ecosystem, where security patches are especially released and not packaged with other updates.
+    I believe that this will help towards facilitating smoother library migrations.
+\end{itemize}
+
+\section{Future Work}
+\begin{itemize}
+    \item \textit{This case study should be expanded to other programming languages to generalize the results.} All the studies performed in this thesis are executed for npm ecosystem nodeJS projects. To understand if this phenomena occurs in other ecosystem or is a peculiarity of npm, I suggest that replication of this study should be performed in other ecosystems.
+   
+    \item \textit{Automation needs to be improved}. During the specification of \tool[] I have mentioned that it focus on 1 type of function call. In order for its performance to be increased it is necessary to include more type of function-call detection since it is covering a percentage of the total number of function call types that exists.
+    
+    Furthermore, this thesis presents the automation of the function-call tracing, however, the vulnerable function detection of the third-party library remains under manual validation. For future work, trying to also automate that process will significantly reduce time for the analysis and will provide better insight to the developers.
+\end{itemize}
+
