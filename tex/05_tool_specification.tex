@@ -1,16 +1,18 @@
 \chapter{\texorpdfstring{\tool[]}{SojiTantei}: A Tool To Aid In Library Migrations}
 \label{sec:specification}
 
-In this chapter I will be explaining in detail the behavior of \tool[] as well as showing the results for the exploratory study replication performed with the tool.
+\begin{comment}
+as well as showing the results for the exploratory study replication performed with the tool.
+\end{comment}
 Once the exploratory study was finished I had a better understanding of what were the features that will be useful in a tool to help the developers have a better insight of their projects and the relation with the third-party libraries. Among those features the most important one is the ability to trace third-party library function-calls since it will allow the user to understand if a vulnerable function in the library is been reached or not.
 
 As mentioned before in Chapter \ref{sec:background}, I am working on the automation of the function-call extraction for challenge number 2, by using syntax analysis in the project code files. 
 
-Before describing the detail of the tool I will be explaining the origin of the name. \tool[] is a combination of two Japanese words. S\={o}ji (\begin{CJK}{UTF8}{min}掃除\end{CJK}) which means clean and Tantei (\begin{CJK}{UTF8}{min}探偵\end{CJK})
+In this Chapter I will be explaining in detail the behavior of \tool[] but before that I will be explaining the origin of the name. \tool[] is a combination of two Japanese words. S\={o}ji (\begin{CJK}{UTF8}{min}掃除\end{CJK}) which means clean and Tantei (\begin{CJK}{UTF8}{min}探偵\end{CJK})
 that means detective. The idea is that the tool will work as a \textit{detective}, allowing the developer to know the details of their projects regarding the relations with third-party libraries and based on those details help the developer to perform the corresponding \textit{cleaning} (i.e. update) for the project.
 
 %Approach
-\section{Approach}
+%\section{Approach}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[ht!]
 \centering
@@ -147,104 +149,3 @@ The installation folder should contain all the scripts that are shown in Figure 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
 
 After downloading the tool you can follow the Readme file included to complete the installation.
-
-%Setup 
-\section{Replication Study Setup}
-Once the scripts for \tool[] were completed I wanted to test how its usage could address the 2nd Challenge described in Chapter \ref{sec:background}, trying to automate the function-calls extraction and at the same time validate the accuracy of the tool. 
-Since I had the result of the exploratory study performed previously I figured out that by replicating the study, using the tool to extract some of the information, I could get an estimation of the accuracy by comparing the results of both studies.
-Since the data setup was already explained on the previous section for details please refer to section \textit{Case Study Setup} from Chapter \ref{sec:exploratory_study}.
-In this study I obtained the third party libraries function-calls, that were extracted manually on the previous study, by using the scripts of \tool[]. Based on the results from both studies I got the base values to make the calculations to obtain the accuracy of the tool among with other metrics. 
-
-The base values are divided as follows:
-\begin{itemize}
-    \item \textbf{\textit{n}} represents the \textit{total number of projects} that where used in both studies.
-    \item \textbf{\textit{TN}} represents the \textit{True Negative} results, this is obtained by cross-referencing the \textit{Actual No} values (i.e. those projects that where not using the vulnerable function in the exploratory study) and the \textit{Predicted No} values (i.e. those projects that where not using the vulnerable function according to \tool[]). 
-    \item \textbf{\textit{FN}} represents the \textit{False Negatives} results, this is obtained by cross-referencing the \textit{Actual Yes} values (i.e. those projects that were using the vulnerable function in the exploratory study) and the \textit{Predicted No} values. 
-    \item \textbf{\textit{FP}} represents the \textit{False Positives} results, this is obtained by cross-referencing the \textit{Actual No} values and the \textit{Predicted Yes} values (i.e. those projects that where using the vulnerable function according to \tool[]).
-    \item \textbf{\textit{TP}} represents the \textit{True Positives} results, this is obtained by cross-referencing the \textit{Actual Yes} values and the \textit{Predicted Yes} values.
-\end{itemize}
-Figure \ref{fig:replicationStatistics} presents a template of how the base values were obtained.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}[ht]
-\centering
-\includegraphics[width=1\textwidth]{images/replication_statistics.png}
-\caption{Template for base values acquisition}
-\label{fig:replicationStatistics}
-\end{figure}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Once the base values where acquired the following metrics where calculated:
-\begin{itemize}
-    \item \textbf{\textit{Accuracy}} represents the percentage of the function-calls in a project that were identified accurately. This is obtained by adding the results of the \textit{True Negative} and \textit{True Positive} values and dividing them among the \textit{total number of projects}.
-    \item \textbf{\textit{Miss-classification rate}} represents the percentage of the function-calls in a project that were identified inaccurately. This is obtained by adding the results of the \textit{False Positive} and \textit{False Negative} values and diving them among the \textit{total number of projects}.
-    \item \textbf{\textit{TP rate}} represent the percentage of \textit{True Positive} values accurately detected. This is obtained by dividing the \textit{True Positive} result among the addition of \textit{False Negative} and \textit{True Positive} values.
-    \item \textbf{\textit{FP rate}} represent the percentage of \textit{True Negative} values inaccurately detected. This is obtained by dividing the \textit{False Positive} values among the addition of \textit{True Negative} and \textit{False Positive} values.
-    \item \textbf{\textit{TN rate}} represent the percentage of \textit{True Negative} values accurately detected. This is obtained by dividing the \textit{True Negative} values among the addition of \textit{True Negative} and \textit{False Positive} values.
-    \item \textbf{\textit{FN rate}} represent the percentage of \textit{True Positive} values inaccurately detected. This is obtained by dividing the \textit{False Negative} values among the addition of \textit{False Negative} and \textit{True Positive} values.
-\end{itemize}
-
-%Results and Implications
-\section{Results and Implications}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}[ht]
-\centering
-\includegraphics[width=1\textwidth]{images/studies_comp_graph3.png}
-\caption{Comparison between Exploratory Study and Replication Study Results}
-\label{fig:replicationResults}
-\end{figure}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Comparing the results shown in Figure \ref{fig:replicationResults} from both studies, allowed me to calculate an estimate on the accuracy of the tool. First I obtained the base values, as those presented in Figure \ref{fig:replicationStatistics} previously. Once the base values were acquired I calculated the accuracy among other metrics for \tool[]. 
-
-Table \ref{tab:replication_statistics} presents the summary of the base values and metrics calculated.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table*}[ht]
-\centering
-\scalebox{0.8}{
-\begin{tabular}{|l|c|l|}
-\hline
-\multicolumn{1}{|c|}{\textbf{Metric}} & 
-\multicolumn{1}{c|}{\textbf{Value}} & 
-\multicolumn{1}{c|}{\textbf{Description}} \\ \hline
-\multicolumn{3}{|c|}{\textbf{Base Values for Calculations}} \\ \hline
-n & 60 & Number of projects analyzed\\ \hline
-TN & 39 & True Negatives. Predicted No and Actual No\\ \hline
-FN & 10 & False Negatives. Predicted No and Actual Yes\\ \hline
-FP & 0 & False Positives. Predicted Yes and Actual No\\ \hline
-TP & 11 & True Positives. Predicted Yes and Actual Yes\\ \hline
-\multicolumn{3}{|c|}{\textbf{Statistics Values Calculations}} \\ \hline
-Accuracy & 0.833 & (TN + TP)/N\\ \hline
-Miss-classification rate & 0.167 & (FP + FN)/N\\ \hline
-TP rate & 0.524 & TP/(FN + TP)\\ \hline
-FP rate & 0 & FP/(TN + FP)\\ \hline
-TN rate & 1 & TN/(TN + FP)\\ \hline
-FN rate & 0.476 & FN/(FN + TP)\\ \hline
-\end{tabular}}
-\caption{Base Values and Metrics from both studies results comparison}
-\label{tab:replication_statistics}
-\end{table*}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Additionally it is important to mention that the average execution time for the function-call extraction was 0.73 seconds per project, making this approach significantly faster than the manual execution.
-\vspace{5mm}
-
-
-After analyzing the previous results I came with the following implications:
-\begin{enumerate}
-    \item \textit{This case study should be expanded to other programming languages to generalize the results.}
-    For this case study I am using client projects that are also npm libraries. 
-    For a more rigorous study, I would like to investigate this phenomena in more generic JavaScript client projects (i.e., such as websites and frameworks written in a combination of different languages).
-    \item \textit{Automation needs to be improved}. As shown in the results, although the tool achieved a 83\% of accuracy in comparison with the previous study, there still a gap that needs to be optimized to get better and more accurate results.
-    
-    For example, regarding the \textit{False Negatives}, Figure \ref{fig:falseNegativeExample} illustrates an example of a complex function-call that was retrieved manually through a regular expression search (i.e. the function \$compileProvider) in the exploratory study but was not detected by \tool[] since it is out of the current scope of the tool (i.e. those function calls that are linked to a \textit{require} statement).
-\end{enumerate}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}[ht]
-\centering
-\includegraphics[width=1\textwidth]{images/false_negatives_reason.png}
-\caption{Complex example of function-call not traced by \tool[]}
-\label{fig:falseNegativeExample}
-\end{figure}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

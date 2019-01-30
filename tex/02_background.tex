@@ -11,7 +11,7 @@ This is evident by a rise in tool support and security organizations such as \te
 For example, it has become common for GitHub projects to display a badge, that socially shows that the project is keeping up to date with its dependencies \cite{Trockman:2018,Mirhosseini:2017}.
 
 However, the recent tool support focus is on detecting if a vulnerable library is listed in a project, assuming that, if the vulnerable library is included in the project, then the project is vulnerable. I believe that this assumption is actually an overestimation.
-Recent studies \cite{Hejderup:2018}, \cite{Ponta:2018} shows that, many projects that do not actually call the affected function are safe from the vulnerability. I refer to these projects as being \textit{clean} (i.e., they do not execute the affecting code in their client applications).
+Recent studies \cite{Hejderup:2018,Ponta:2018} shows that, many projects that do not actually call the affected function are safe from the vulnerability. I refer to these projects as being \textit{clean} (i.e., they do not execute the affecting code in their client applications).
 Conversely, I refer to \textit{used} clients as projects that adopt and execute the vulnerability code.
 Similarily, Hejderup et al. studied library migrations at the function level, constructing a call graph to understand the true effect of the vulnerability. 
 Their study concluded that analysis at this level is indeed problematic due to execution costs needed to construct these graphs.

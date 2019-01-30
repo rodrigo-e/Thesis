@@ -21,6 +21,8 @@ However, a key threat to validity is that it was performed at the component rath
 The goal of this thesis is to help the developers have a better understanding of the actual migration effort by providing detailed information of the projects and its dependencies.
 First I will be discussing the background (Chapter \ref{sec:background}) which includes the motivating example. 
 Next I will introduce related work that included tool support for library updates and prior work related to library dependencies and evolution (Chapter \ref{sec:related_work}).
+
+
 The main contributions of this thesis are divided into three main sections
 \begin{enumerate}
     \item \textbf{Exploratory Study of Vulnerable Function Call-Tracing:} I performed an exploratory study with the goal to understand to what extent the usage of library vulnerable code affects the way developers update their vulnerable dependencies. 
@@ -31,13 +33,13 @@ The main contributions of this thesis are divided into three main sections
 %Analyzing a set of nodeJS projects to understand how vulnerabilities in a third-party library affects the way developers update their library dependencies.
     \item \textbf{\tool[]: A Tool to Aid in Library Migrations:} Once I completed the exploratory study I realized that the amount of manual work required to perform the study was very extent. In order to optimize the efforts needed for the analysis my goal was to create a tool that will be able to obtain the same information in a semi-automated way and at the same time allows the developers to use it to get information regarding their own projects. 
     To achieve this goal \tool[] was created,
-    A tool that, in its main functionality, will allow the users to get a trace of the function-calls to a third party library methods.
-    To evaluate the efficiency of \tool[] and the impact against the manual approach I replicated the exploratory study form the previous section using the tool in some of the steps.
+    a tool that, in its main functionality, will allow the users to get a trace of the function-calls to a third party library methods.
     (Chapter \ref{sec:specification})
 %Details on how, based on the results from the exploratory study, the tool was developed and the replication of the \textit{Vulnerable Function Call Tracing Exploratory Study} using \sj~in order to measure its performance and compare results. 
-    \item \textbf{Impact of Function-Call Tracing in the npm Ecosystem:} Once \tool[] was completed I wanted to use the tool to evaluate whether function-call tracing impacts previous studies.
-    In order to do that I evaluated a percentage of the projects from a previous study on vulnerabilities in the npm package dependency ecosystem \cite{decan2018impact} to make a comparison between analysis at library level (i.e. their approach) and function level (i.e. my approach).
-    (Chapter \ref{sec:impact_study}).
+    \item \textbf{Evaluation and Results} 
+    To evaluate the efficiency of \tool[] and how it impacts previous studies I performed 2 validations. (i) I replicated the exploratory study form the previous section using the tool in some of the steps.
+    (ii) I evaluated a percentage of the projects from a previous study on vulnerabilities in the npm package dependency ecosystem \cite{decan2018impact} to make a comparison between analysis at library level (i.e. their approach) and function level (i.e. my approach).
+    The execution and results of both validations will be presented in Chapters \ref{sec:validations} and \ref{sec:results}.
 \end{enumerate}
 
 %One of the main features of \sj~that we can highlight is the detection of the functions of the third-party library that are been used in the project (i.e. function calls), since nodeJS is not a compiled language as Java, the detection of the function calls is not a task easy to perform.
