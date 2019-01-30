@@ -88,12 +88,12 @@ To follow this approach the user needs to run the script called "\textit{getTags
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-The output generated in this functionality will be used in the next function of the tool. For both of the approaches used, the tool depends on the developer including the version either in the \textit{package.json} file or in a tag when creating a release commit. Fortunately most of the users include the version in the \textit{package.json} file.\\
+The output generated in this functionality will be used in the next functions of the tool. For both of the approaches used, the tool depends on the developer including the version either in the \textit{package.json} file or in a tag when creating a release commit. Fortunately most of the users include the version in the \textit{package.json} file.\\
 
 %Second Functionality
 \textbf{Function-Call Tracer:}\\
-For this functionality the tool uses the library \textit{esprima}\footnote{website at \url{http://esprima.org/}} to perform a syntax analysis of every \textit{js} or \textit{jsx} file on a project provided by the output of Project Versions Detector. 
-\enlargethispage{\baselineskip}
+For this functionality the tool uses the library \textit{esprima}\footnote{website at \url{http://esprima.org/}} to perform a syntax analysis of every \textit{js} or \textit{jsx} file on a project provided by the output of Versions Detector. 
+%\enlargethispage{\baselineskip}
 When performing the syntax analysis of a file, the tool will search all the \textit{require} statements to get the libraries that are been used in the file and the methods called for those libraries. This is achieved by doing a recursive tokenization because the \textit{require} statement is first stored in a local variable and then the methods of the library are invoked through that local variable, this makes the analysis of function-calls a hard to perform task. Figure \ref{fig:libExamples} shows an example of how the function calls could be performed in the nodeJS ecosystem and what will be the output of the functionality. 
 
 I mentioned before in Chapter \ref{sec:background} that there are many ways to perform a function call in JavaScript, for this functionality I will be focusing on \textit{function expression} type which is the most common type of call\footnote{For more information please consult the follwing url: \url{https://dmitripavlutin.com/6-ways-to-declare-javascript-functions/\#2functionexpression}} for third-party libraries. 
@@ -111,8 +111,8 @@ Since nodeJS programs are not compiled as those in Java, there is no easy way to
 
 To execute this functionality the user needs to execute the script called \textit{syntaxChecker.js} and input the name of the project to be analyzed in the first parameter. 
 There are two possible executions of the script, 
-(i) running the script without extra parameters will get the function-calls for all the versions of the project included in the output of Project Versions Detector. 
-(ii) running the script inputting from the second parameter the names of version files (i.e. R\_\{version\}.txt) included in the output of Project Versions Detector will perform the analysis on those files only.
+(i) running the script without extra parameters will get the function-calls for all the versions of the project included in the output of Versions Detector. 
+(ii) running the script inputting from the second parameter the names of version files (i.e. R\_\{version\}.txt) included in the output of Versions Detector will perform the analysis on those files only.
 
 The output of this functionality is a single file containing a list of the third-party library function-calls per file (as shown previously in Figure \ref{fig:listExample}) and a generalized list of all the function-calls in the project.\\
 
@@ -131,8 +131,8 @@ The final function of \tool[] makes use of the libraries \textit{function-extrac
 
 To execute this functionality the user need to execute the script called \textit{getFunctions.js} and input the name of the project to be analyzed in the first parameter.
 There are two possible executions of the script,
-(i) running the script without extra parameters will get the function comparison for all the version projects included in the output of Project Version Detector, this comparison will be performed by pairs in incremental order from the oldest version to the newest.
-(ii) running the script inputting from the second parameter the names of version files (i.e. R\_\{version\}.txt) included in the output of Project Versions Detector will perform the analysis on those fails only, performed by pairs in the inputted order.\\
+(i) running the script without extra parameters will get the function comparison for all the version projects included in the output of Version Detector, this comparison will be performed by pairs in incremental order from the oldest version to the newest.
+(ii) running the script inputting from the second parameter the names of version files (i.e. R\_\{version\}.txt) included in the output of Versions Detector will perform the analysis on those fails only, performed by pairs in the inputted order.\\
 
 \tool[] is available for download by following the next url: \url{https://github.com/rodrigo-e/SojiTantei}.
 The installation folder should contain all the scripts that are shown in Figure \ref{fig:sojiGit}
@@ -150,7 +150,7 @@ After downloading the tool you can follow the Readme file included to complete t
 
 %Setup 
 \section{Replication Study Setup}
-Once the scripts for \tool[] were completed I wanted to test how its usage could address the 2 Challenge described in Chapter \ref{sec:background}, trying to automate the function-calls extraction and at the same time validate the accuracy of the tool. 
+Once the scripts for \tool[] were completed I wanted to test how its usage could address the 2nd Challenge described in Chapter \ref{sec:background}, trying to automate the function-calls extraction and at the same time validate the accuracy of the tool. 
 Since I had the result of the exploratory study performed previously I figured out that by replicating the study, using the tool to extract some of the information, I could get an estimation of the accuracy by comparing the results of both studies.
 Since the data setup was already explained on the previous section for details please refer to section \textit{Case Study Setup} from Chapter \ref{sec:exploratory_study}.
 In this study I obtained the third party libraries function-calls, that were extracted manually on the previous study, by using the scripts of \tool[]. Based on the results from both studies I got the base values to make the calculations to obtain the accuracy of the tool among with other metrics. 

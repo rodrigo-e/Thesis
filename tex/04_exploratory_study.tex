@@ -51,7 +51,7 @@ For the second set, I will analyze the time taken to update for projects that fo
 My intention is to understand which one of these patterns updates first. 
 
 \section{Case Study Setup}
-As shown in the Table \ref{tab:vulnerability}, the three vulnerable dependencies were chosen due to their high severity and their impact (popularity) to the npm ecosystem of packages (i.e., we used the number of GitHub stars and downloads to rank popularity). 
+As shown in the Table \ref{tab:vulnerability}, the three vulnerable dependencies were chosen due to their high severity and their impact (popularity) to the npm ecosystem of packages (i.e., I used the number of GitHub stars and downloads to rank popularity). 
 
 \vspace{3mm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -71,7 +71,7 @@ ws & High & npm:ws:20160624 & Denial of Service (DoS) & \textless{}= 1.1.0 & 24 
 \end{table*}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-As well as the \texttt{ws} package from the motivating example in chapter \ref{sec:background}, the other two studied vulnerabilities are the popular \texttt{angular} and \texttt{marked} libraries.
+As well as the \texttt{ws} package from the motivating example in Chapter \ref{sec:background}, the other two studied vulnerabilities are the popular \texttt{angular} and \texttt{marked} libraries.
 It is important to note that I selected security vulnerabilities that were published at least a year ago before this study, allowing ample time for client projects to become aware of the security advisories.
 
 For the client selection, as shown in Table \ref{tab:selected_project}, I selected the top projects based on popularity (i.e., GitHub stars, dependents and download counts).
@@ -171,6 +171,6 @@ After analyzing the previous results I came with the following implications:
 
     \item \textit{Automatic approaches are needed to increase the scalability of mapping the usage of library code in client projects. }
     A potential avenue for future work is the automation of my current approach.
-    Currently, my projects are a limited sample of the population. 
+    Currently, the projects are a limited sample of the population. 
     With automation, the same study can be conducted at a larger scale providing a more accurate comprehensive analysis.
 \end{enumerate}
