@@ -25,7 +25,7 @@ that means detective. The idea is that the tool will work as a \textit{detective
 Figure \ref{fig:sojiApproach} gives an overview of the features of \tool[] which will be detailed further on.
 Since the initial target for the tool is the \textit{nodeJS} ecosystem, the tool was programmed using \textit{JavaScript} and \textit{npm} libraries and it is divided in a series of scripts that can be run separately depending on the information required.
 The goal of \tool[] is to analyze nodeJS projects, to achieve that goal it is necessary to download the git repository of the projects that will be analyzed since they will be the input for the first functionality. 
-
+\enlargethispage{\baselineskip}
 Once the git repository of the projects have been downloaded the user can proceed to use the following functions.\\
 
 %First Functionality
@@ -134,6 +134,7 @@ The final function of \tool[] makes use of the libraries \textit{function-extrac
 To execute this functionality the user need to execute the script called \textit{getFunctions.js} and input the name of the project to be analyzed in the first parameter.
 There are two possible executions of the script,
 (i) running the script without extra parameters will get the function comparison for all the version projects included in the output of Version Detector, this comparison will be performed by pairs in incremental order from the oldest version to the newest.
+\enlargethispage{\baselineskip}
 (ii) running the script inputting from the second parameter the names of version files (i.e. R\_\{version\}.txt) included in the output of Versions Detector will perform the analysis on those fails only, performed by pairs in the inputted order.\\
 
 \tool[] is available for download by following the next url: \url{https://github.com/rodrigo-e/SojiTantei}.
